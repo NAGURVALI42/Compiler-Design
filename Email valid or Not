@@ -3,7 +3,7 @@
 %}
 
 %%
-[a-z0-1.]+"gmail.com"               {printf("%s is valid email\n");}
+[a-zA-z0-9.]+"gmail.com"               {printf("%s is valid email\n");}
 
 .+                                  {printf("%s is Invalid email\n");}
 %%
