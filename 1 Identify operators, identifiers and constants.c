@@ -71,3 +71,9 @@ int main()
 		printf("%c ",op[j]);
 	}
 }
+output:
+Enter the string: a = 10 + b * 5
+Identifiers: a b 
+Constants: 10 5 
+Operators: = + * 
+
