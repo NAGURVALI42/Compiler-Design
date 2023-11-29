@@ -13,7 +13,24 @@ int isValidIdentifier(const char *identifier) {
         }
     }
 
-    return 1; // Valid ide
+    return 1; // Valid identifier
+}
+
+int main() {
+    char identifier[30];
+
+    printf("Enter an identifier: ");
+    scanf("%s", identifier);
+
+    if (isValidIdentifier(identifier)) {
+        printf("Valid identifier\n");
+    } else {
+        printf("Invalid identifier\n");
+    }
+
+    return 0;
+}
+
 output:
 Enter an identifier: myVariable123
 Valid identifier
