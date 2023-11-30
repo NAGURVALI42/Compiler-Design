@@ -1,36 +1,30 @@
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
+#include<stdio.h>
+#include<conio.h>
+#include<ctype.h>
+void main()
+{
+char a[10];
+int flag, i=1;
 
-int isValidIdentifier(const char *identifier) {
-    if (!isalpha(identifier[0]) && identifier[0] != '_') {
-        return 0; // Invalid: Identifier must start with a letter or underscore
-    }
-
-    for (int i = 1; i < strlen(identifier); i++) {
-        if (!isalnum(identifier[i]) && identifier[i] != '_') {
-            return 0; // Invalid: Contains non-alphanumeric characters other than underscore
-        }
-    }
-
-    return 1; // Valid identifier
+printf("\n Enter an identifier:");
+gets(a);
+if(isalpha(a[0]))
+flag=1;
+else
+printf("\n Not a valid identifier");
+while(a[i]!='\0')
+{
+if(!isdigit(a[i])&&!isalpha(a[i]))
+{
+flag=0;
+break;
 }
-
-int main() {
-    char identifier[30];
-
-    printf("Enter an identifier: ");
-    scanf("%s", identifier);
-
-    if (isValidIdentifier(identifier)) {
-        printf("Valid identifier\n");
-    } else {
-        printf("Invalid identifier\n");
-    }
-
-    return 0;
+i++;
 }
-
+if(flag==1)
+printf("\n Valid identifier");
+getch();
+}
 output:
 Enter an identifier: myVariable123
 Valid identifier
