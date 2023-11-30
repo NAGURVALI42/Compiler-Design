@@ -1,24 +1,27 @@
 #include <stdio.h>
-#include <ctype.h>
-
 int main() {
-    char c;
-    int whitespaceCount = 0, newlineCount = 0;
+    char ch;
+    int spaceCount = 0, newlineCount = 0;
 
-    printf("Enter a string (Ctrl+D to end input):\n");
+    printf("Enter text (Ctrl+D or Ctrl+Z to end input):\n");
 
-    while ((c = getchar()) != EOF) {
-        if (isspace(c)) {
-            if (c == '\n') {
-                newlineCount++;
-            } else {
-                whitespaceCount++;
-            }
+    while (1) {
+        ch = getchar();
+        
+        if (ch == EOF) {
+            break; 
+        }
+
+        if (ch == ' ' || ch == '\n' || ch == '\t')
+		 {
+            if (ch == ' ') 
+			spaceCount++;
+            else 
+			newlineCount++;
         }
     }
 
-    printf("\nNumber of whitespaces: %d\n", whitespaceCount);
-    printf("Number of newline characters: %d\n", newlineCount);
+    printf("\nSpaces: %d\nNewlines: %d\n", spaceCount, newlineCount);
 
     return 0;
 }
