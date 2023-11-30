@@ -1,29 +1,31 @@
-#include<stdio.h>
-#include<conio.h>
-#include<ctype.h>
-void main()
-{
-char a[10];
-int flag, i=1;
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
 
-printf("\n Enter an identifier:");
-gets(a);
-if(isalpha(a[0]))
-flag=1;
-else
-printf("\n Not a valid identifier");
-while(a[i]!='\0')
-{
-if(!isdigit(a[i])&&!isalpha(a[i]))
-{
-flag=0;
-break;
+int isValidIdentifier(const char *identifier) {
+    if (!isalpha(identifier[0]) && identifier[0] != '_') {
+        return 0;
+    }
+    for (int i = 1; i < strlen(identifier); i++) {
+        if (!isalnum(identifier[i]) && identifier[i] != '_') {
+            return 0; 
+        }
+    }
+    return 1;
 }
-i++;
-}
-if(flag==1)
-printf("\n Valid identifier");
-getch();
+	int main() {
+    char identifier[30];
+
+    printf("Enter an identifier: ");
+    scanf("%s", identifier);
+
+    if (isValidIdentifier(identifier)) {
+        printf("Valid identifier\n");
+    } else {
+        printf("Invalid identifier\n");
+    }
+
+    return 0;
 }
 output:
 Enter an identifier: myVariable123
