@@ -1,29 +1,28 @@
-#include <stdio.h>
-#include <string.h>
-
-int checkGrammar(const char *sentence) {
-    // Implement your grammar rules
-    // Return 1 if the sentence satisfies the grammar, 0 otherwise
-
-    // Example: Check if the sentence starts with "The" and ends with a period.
-    if (strncmp(sentence, "The", 3) == 0 && sentence[strlen(sentence) - 1] == '.') {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
 int main() {
-    char sentence[100];
-
-    printf("Enter a sentence: ");
-    gets(sentence);
-
-    if (checkGrammar(sentence)) {
-        printf("The sentence satisfies the grammar.\n");
-    } else {
-        printf("The sentence does not satisfy the grammar.\n");
-    }
-
-    return 0;
+	char string[50];
+	int flag,count=0;
+	printf("The grammar is: S->aS, S->Sb, S->ab\n");
+	printf("Enter the string to be checked:\n");
+	gets(string);
+	if(string[0]=='a') {
+		flag=0;
+		for (count=1;string[count-1]!='\0';count++) {
+			if(string[count]=='b') {
+				flag=1;
+				continue;
+			} else if((flag==1)&&(string[count]=='a')) {
+				printf("The string does not belong to the specified grammar");
+				break;
+			} else if(string[count]=='a')
+			continue; else if((flag==1)&&(string[count]='\0')) {
+				printf("String not accepted…..!!!!");
+				break;
+			} else {
+				printf("String accepted");
+			}
+		}
+	}
 }
