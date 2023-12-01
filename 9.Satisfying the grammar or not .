@@ -26,3 +26,8 @@ int main() {
 		}
 	}
 }
+output:
+The grammar is: S->aS, S->Sb, S->ab
+Enter the string to be checked:
+aab
+String accepted
