@@ -1,0 +1,28 @@
+digit [0-9]
+%{
+    int cons=0;
+%}
+%%
+{digit}+ { cons++; printf("%s is a constant\n", yytext);  }
+.|\n { }
+%%
+int yywrap(void)
+ {
+   return 1; 
+}
+int main(int argc, char *argv[]) 
+{
+yyin = fopen(argv[1], "r");
+yyout=fopen("manu.c","w");
+yylex();
+printf("Number of Constants : %d\n", cons);
+fclose(yyin);  
+}
+input:
+#include<stdio.h>
+#include<conio.h>
+ void main()
+{
+int a,b,c = 30;
+printf("hello");
+}
