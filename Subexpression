@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char ip[100][40] = {"x=9+10", "y=9+10", "z=10+a"};
+    int i, j, k, count = 0;
+  for (i = 0; i < 4; i++)
+    {  for (j = i + 1; j < 4; j++)
+        {
+            int len = strlen(ip[i]);
+            if (strncmp(ip[i], ip[j], len) == 0)
+            {
+                for (k = len; k <= strlen(ip[j]); k++)
+                {
+                    ip[j][k - len] = '\0'; 
+                }
+
+                count++;
+            }
+        }
+    }
+
+    printf("Common subexpressions eliminated: %d\n", count);
+    for (i = 0; i < 4; i++)
+    {
+        if (ip[i][0] != '\0') 
+            printf("%s\n", ip[i]);
+    }
+
+    return 0;
+}
